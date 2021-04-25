@@ -1,4 +1,4 @@
-# TopoGAN
+# topoGAN
 A geometric deep learning framework for jointly predicting multiple brain graphs from a single brain graph, coded up in Python by Alaa Bessadok. Please contact alaa.bessadok@gmail.Com for further inquiries. Thanks. 
 
 This repository provides the official PyTorch implementation of the following paper:
