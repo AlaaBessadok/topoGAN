@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf8 -*-
 """
-Main function of TopoGAN framework 
+Main function of topoGAN framework 
 for jointly predicting multiple target brain graphs from a single source graph.
 
 The original paper can be found in: https://www.sciencedirect.com
@@ -23,7 +23,7 @@ Sample use for training:
   model.train()
 
 Sample use for testing:
-  model = TopoGraphGAN(src_loader, tgt_loaders, opts.nb_clusters, opts)
+  model = TopoGAN(src_loader, tgt_loaders, opts.nb_clusters, opts)
   predicted_target_graphs, source_graphs = model.test()
           Output:
                   predicted_target_graphs : a list of size num_domains-1 where num_domains is the number of source and target domains.
@@ -102,7 +102,7 @@ if __name__ == '__main__':
     
     if opts.mode == 'train':
         """
-        Training TopoGAN
+        Training topoGAN
         """
         # Create directories if not exist.
         create_dirs_if_not_exist([opts.log_dir, opts.checkpoint_dir, opts.sample_dir, opts.result_dir])
@@ -136,7 +136,7 @@ if __name__ == '__main__':
 
     elif opts.mode == 'test':
         """
-        Testing TopoGAN
+        Testing topoGAN
         """
         # Create directories if not exist.
         create_dirs_if_not_exist([opts.result_dir])
