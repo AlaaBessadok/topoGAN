@@ -123,7 +123,7 @@ class TopoGAN(object):
 
     def train(self):
         """
-        Train TopoGAN
+        Train topoGAN
         """
         nb_clusters = self.nb_clusters
         
@@ -348,7 +348,7 @@ class TopoGAN(object):
     # =================================================================================== #
     def test(self):
         """
-        Test the trained TopoGAN.
+        Test the trained topoGAN.
         """
         self.restore_model(self.opts.test_iters,self.opts.nb_clusters)
         
