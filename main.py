@@ -9,7 +9,7 @@ Alaa Bessadok, Mohamed Ali Mahjoub, and Islem Rekik. "Brain Multigraph Predictio
 Medical Image Analysis Journal 2020.
 ---------------------------------------------------------------------
 
-MultiGraphGAN(src_loader, tgt_loaders, nb_clusters, opts)
+TopoGAN(src_loader, tgt_loaders, nb_clusters, opts)
           Inputs:
                   src_loader:   a PyTorch dataloader returning elements from source dataset batch by batch
                   tgt_loaders:  a PyTorch dataloader returning elements from target dataset batch by batch
@@ -39,7 +39,7 @@ import random
 import yaml
 import numpy as np
 from torch.backends import cudnn
-from prediction import MultiGraphGAN
+from prediction import TopoGAN
 from data_loader import *
 
 parser = argparse.ArgumentParser()
@@ -51,7 +51,7 @@ parser.add_argument('--log_dir', type=str, default='logs/')
 parser.add_argument('--checkpoint_dir', type=str, default='models/')
 parser.add_argument('--sample_dir', type=str, default='samples/')
 parser.add_argument('--result_dir', type=str, default='results/')
-parser.add_argument('--result_root', type=str, default='result_MultiGraphGAN/')
+parser.add_argument('--result_root', type=str, default='result_TopoGAN/')
 
 # GCN model opts
 parser.add_argument('--hidden1', type=int, default=32)
