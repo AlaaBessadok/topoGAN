@@ -30,7 +30,7 @@ Sample use for testing:
                                            Each element is an (n × f) matrix stacking the predicted target feature graphs f of n testing subjects
                   source_graphs : a matrix of size (n × f) stacking the source feature graphs f of n testing subjects
 ---------------------------------------------------------------------
-Copyright 2020 Alaa Bessadok, Sousse University.
+Copyright 2021 Alaa Bessadok, Sousse University.
 Please cite the above paper if you use this code.
 All rights reserved.
 """
