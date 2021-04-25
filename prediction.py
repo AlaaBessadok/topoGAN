@@ -123,7 +123,7 @@ class TopoGAN(object):
 
     def train(self):
         """
-        Train MultiGraphGAN
+        Train TopoGAN
         """
         nb_clusters = self.nb_clusters
         
@@ -258,7 +258,6 @@ class TopoGAN(object):
                 g_loss_adv = 0
                 g_loss_idt = 0
                 g_loss_topo = 0
-                g_loss_rec = 0
                 g_loss = 0
                 
                 for par in range(nb_clusters):
@@ -293,9 +292,7 @@ class TopoGAN(object):
 
                         ### Adversarial loss
                         g_loss_adv -= torch.mean(out_fake_i) # opposed sign
-
                         
-
                     # Cluster-based loss to update the generators
                     g_loss_cluster = g_loss_adv / (self.opts.num_domains - 1) + self.opts.lambda_info * g_loss_info + self.opts.lambda_idt * g_loss_idt + self.opts.lambda_topology * g_loss_topo
                     
@@ -309,7 +306,6 @@ class TopoGAN(object):
 
                 # Logging.
                 loss['G/loss_adv'] = g_loss_adv.item()
-                loss['G/loss_rec'] = g_loss_rec.item()
                 loss['G/loss_cls'] = g_loss_info.item()
                 if self.opts.lambda_idt > 0:
                     loss['G/loss_idt'] = g_loss_idt.item()
