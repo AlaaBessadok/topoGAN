@@ -1,37 +1,29 @@
 #!/usr/bin/python
 # -*- coding: utf8 -*-
 """
-Main function of MultiGraphGAN framework 
+Main function of TopoGAN framework 
 for jointly predicting multiple target brain graphs from a single source graph.
 
-Details can be found in:
-(1) the original paper https://link.springer.com/
-    Alaa Bessadok, Mohamed Ali Mahjoub, and Islem Rekik. "Topology-Aware Generative Adversarial Network for Joint Prediction of
-   														  Multiple Brain Graphs from a Single Brain Graph", MICCAI 2020, Lima, Peru.
-(2) the youtube channel of BASIRA Lab: https://www.youtube.com/watch?v=OJOtLy9Xd34
+The original paper can be found in: https://www.sciencedirect.com
+Alaa Bessadok, Mohamed Ali Mahjoub, and Islem Rekik. "Brain Multigraph Prediction using Topology-Aware Adversarial Graph Neural Network",
+Medical Image Analysis Journal 2020.
 ---------------------------------------------------------------------
 
-This file contains the implementation of two main steps of our MultiGraphGAN framework:
-  (1) source graphs embedding and clustering, and
-  (2) cluster-specific multi-target graph prediction.
-    
-  MultiGraphGAN(src_loader, tgt_loaders, nb_clusters, opts)
+MultiGraphGAN(src_loader, tgt_loaders, nb_clusters, opts)
           Inputs:
                   src_loader:   a PyTorch dataloader returning elements from source dataset batch by batch
                   tgt_loaders:  a PyTorch dataloader returning elements from target dataset batch by batch
                   nb_clusters:  number of clusters used to cluster the source graph embeddings
                   opts:         a python object (parser) storing all arguments needed to run the code such as hyper-parameters 
           Output:
-                  model:        our MultiGraphGAN model
+                  model:        our TopoGAN model
                   
-To evaluate our framework we used 90% of the dataset as training set and 10% for testing.
-    
 Sample use for training:
-  model = MultiGraphGAN(src_loader, tgt_loaders, opts.nb_clusters, opts)
+  model = TopoGAN(src_loader, tgt_loaders, opts.nb_clusters, opts)
   model.train()
 
 Sample use for testing:
-  model = MultiGraphGAN(src_loader, tgt_loaders, opts.nb_clusters, opts)
+  model = TopoGraphGAN(src_loader, tgt_loaders, opts.nb_clusters, opts)
   predicted_target_graphs, source_graphs = model.test()
           Output:
                   predicted_target_graphs : a list of size num_domains-1 where num_domains is the number of source and target domains.
