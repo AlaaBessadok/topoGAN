@@ -41,7 +41,7 @@ python main.py --num_domains=6 --nb_clusters=2
 In order to use our framework, you need to provide a source_target_domains list where each element is a matrix of size (n * f). We denote n the total number of subjects in the dataset and f the number of features. Any element of the list can be considered as the source domain and the rest are the target domains. You need to include your data in the file main.py. So, just remove our simulated training and testing dataset and replace it with yours. If you set the number of source and target domains to 3 using this argument --num_domains=3 , and keep the same size of our simulated data, the execution of main.py will produce saved csv files of the source and target data. Then, you can plot the brain graphs of any subject from the saved csv files. To do so, run the plot.py to get the following outputs:
 
 <p align="center">
-  <img src="./fig2.png">
+  <img src="./input_output.png">
 </p>
 
 # Related references
