@@ -77,7 +77,6 @@ parser.add_argument('--lambda_reg', type=float, default=0.1, help='a constant wi
 parser.add_argument('--lambda_idt', type=float, default=10, help='hyper-parameter for identity loss')
 parser.add_argument('--lambda_info', type=float, default=1, help='hype-rparameter for information maximazation loss')
 parser.add_argument('--lambda_topology', type=float, default=0.1, help='hyper-parameter for topological constraint')
-parser.add_argument('--lambda_rec', type=float, default=0.01, help='hyper-parameter for graph reconstruction loss')
 parser.add_argument('--nb_clusters', type=int, default=2, help='number of clusters for MKML clustering')
 
 # Training opts.
@@ -111,7 +110,7 @@ if __name__ == '__main__':
     
     if opts.mode == 'train':
         """
-        Training MultiGraphGAN
+        Training TopoGAN
         """
         # Create directories if not exist.
         create_dirs_if_not_exist([opts.log_dir, opts.checkpoint_dir, opts.sample_dir, opts.result_dir])
@@ -139,13 +138,13 @@ if __name__ == '__main__':
                 tgt_loader = get_loader(target_feature, opts.batch_size, opts.num_workers)
                 tgt_loaders.append(tgt_loader)
 
-        # Train MultiGraphGAN
-        model = MultiGraphGAN(src_loader, tgt_loaders, opts.nb_clusters, opts)
+        # Train TopoGAN
+        model = TopoGAN(src_loader, tgt_loaders, opts.nb_clusters, opts)
         model.train()
 
     elif opts.mode == 'test':
         """
-        Testing MultiGraphGAN
+        Testing TopoGAN
         """
         # Create directories if not exist.
         create_dirs_if_not_exist([opts.result_dir])
@@ -169,8 +168,8 @@ if __name__ == '__main__':
                 tgt_loader = get_loader(target_feature, opts.batch_size, opts.num_workers)
                 tgt_loaders.append(tgt_loader)
 
-       # Test MultiGraphGAN
-        model = MultiGraphGAN(src_loader, tgt_loaders, opts.nb_clusters, opts)
+       # Test TopoGAN
+        model = TopoGAN(src_loader, tgt_loaders, opts.nb_clusters, opts)
         predicted_target_graphs, source_graphs = model.test()
 
       # Save data into csv files
